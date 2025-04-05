@@ -1,0 +1,52 @@
+create database cars;
+use cars;
+
+create table car (Brand varchar(50));
+insert into car value ('maruthi suzuki');
+insert into car value ('Hyundai'), ('Tata Motors'),('Mahindra'),('Toyota');
+select * from car;
+
+create table Toyota(model_name varchar(50), car_type varchar(20), price float(10),top_speed varchar(20), fuel_type varchar(20));
+insert into Toyota (model_name, car_type,price, top_speed, fuel_type) values ('urban cruiser hyryder', 'suv',1114000 , '180 km/hr', 'hybrid');
+insert into toyota values ('fortuner', 'suv',3378000 , '190 km/hr', 'diesel');
+insert into Toyota values('innova crysta', 'suv',1999000 , '170 km/hr', 'petrol/diesel');
+insert into Toyota values ('glanza', 'hatchback',690000 , '160 km/hr', 'petrol');
+insert into Toyota values ('camry', 'sedan',4800000 , '180 km/hr', 'hybrid');
+select * from toyota;
+
+create table Maruthi_Suzuki(model_name varchar(50), car_type varchar(20), price float(10),top_speed varchar(20), fuel_type varchar(20));
+insert into Maruthi_Suzuki values ('Swift', 'hatchback',649000, '160 km/hr', 'petrol');
+insert into Maruthi_Suzuki values ('Baleno', 'hatchback',670000, '170 km/hr', 'petrol');
+insert into Maruthi_Suzuki values ('Wagon R', 'hatchback',565000, '150 km/hr', 'hybrid');
+insert into Maruthi_Suzuki values ('Breeza', 'SUV',869000, '180 km/hr', 'petrol');
+insert into Maruthi_Suzuki values ('Ertiga', 'SUV',960000, '165 km/hr', 'hybrid');
+select * from maruthi_suzuki;
+
+create table hyundai(model_name varchar(50), car_type varchar(20), price float(10),top_speed varchar(20), fuel_type varchar(20));
+INSERT INTO Hyundai VALUES ('Creta', 'SUV', 1111000, '180 km/hr', 'petrol'); 
+INSERT INTO Hyundai VALUES ('Venue', 'SUV', 794000, '170 km/hr', 'diesel'); 
+INSERT INTO Hyundai VALUES ('Grand i10 Nios', 'Hatchback', 598000, '160 km/hr', 'petrol'); 
+INSERT INTO Hyundai VALUES ('Exter', 'SUV', 621000, '160 km/hr', 'petrol'); 
+INSERT INTO Hyundai VALUES ('Verna', 'Sedan', 1107000, '180 km/hr', 'petrol');
+select * from hyundai;
+
+create table Tata_Motors(model_name varchar(50), car_type varchar(20), price float(10),top_speed varchar(20), fuel_type varchar(20));
+INSERT INTO Tata_Motors VALUES ('Nexon', 'SUV', 800000, '180 km/hr', 'petrol');
+INSERT INTO Tata_Motors VALUES ('Punch', 'SUV', 620000, '160 km/hr', 'petrol');
+INSERT INTO Tata_Motors VALUES ('Tiago', 'Hatchback', 500000, '150 km/hr', 'petrol');
+INSERT INTO Tata_Motors VALUES ('Harrier', 'SUV', 1500000, '180 km/hr', 'diesel');
+INSERT INTO Tata_Motors VALUES ('Tigor', 'Sedan', 600000, '160 km/hr', 'petrol');
+select * from Tata_Motors;
+
+create table Mahindra (model_name varchar(50), car_type varchar(20), price float(10),top_speed varchar(20), fuel_type varchar(20));
+INSERT INTO Mahindra VALUES ('XUV700', 'SUV', 1399000, '200 km/hr', 'petrol');
+INSERT INTO Mahindra VALUES ('Scorpio N', 'SUV', 1399000, '180 km/hr', 'diesel');
+INSERT INTO Mahindra VALUES ('Thar', 'SUV', 1150000, '150 km/hr', 'diesel');
+INSERT INTO Mahindra VALUES ('Bolero', 'SUV', 979000, '140 km/hr', 'diesel');
+INSERT INTO Mahindra VALUES ('XUV300', 'SUV', 798000, '170 km/hr', 'petrol');
+select * from mahindra;
+
+show tables;
+
+update car set brand = "maruthi_suzuki" where brand = "maruthi suzuki"
+update car set brand = "Tata_Motors" where brand = "tata motors"
