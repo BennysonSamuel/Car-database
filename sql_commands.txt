@@ -50,3 +50,4 @@ show tables;
 
 update car set brand = "maruthi_suzuki" where brand = "maruthi suzuki"
 update car set brand = "Tata_Motors" where brand = "tata motors"
+
