@@ -51,3 +51,60 @@ show tables;
 update car set brand = "maruthi_suzuki" where brand = "maruthi suzuki"
 update car set brand = "Tata_Motors" where brand = "tata motors"
 
+#normalization
+
+create table brands(brand_id int auto_increment primary key, brand_name varchar(50) unique NOT NULL);
+create table car_models(car_id int auto_increment primary key, brand_id int, model_name varchar(50) not null,car_type varchar(50), price float, top_speed varchar(50), fuel_type varchar(50), foreign key (brand_id) references brands(brand_id)); 
+
+-- STEP 1: Create Brands table
+CREATE TABLE Brands (
+    brand_id INT AUTO_INCREMENT PRIMARY KEY,
+    brand_name VARCHAR(50) UNIQUE NOT NULL
+);
+
+-- STEP 2: Insert unique brand names
+INSERT INTO Brands (brand_name) VALUES 
+('Maruthi Suzuki'),
+('Hyundai'),
+('Tata Motors'),
+('Mahindra'),
+('Toyota');
+
+-- STEP 3: Create unified CarModels table
+CREATE TABLE CarModels (
+    car_id INT AUTO_INCREMENT PRIMARY KEY,
+    brand_id INT,
+    model_name VARCHAR(50) NOT NULL,
+    car_type VARCHAR(20),
+    price FLOAT(10),
+    top_speed VARCHAR(20),
+    fuel_type VARCHAR(20),
+    FOREIGN KEY (brand_id) REFERENCES Brands(brand_id)
+);
+
+-- STEP 4: Insert data from old brand tables into CarModels
+
+-- Insert Toyota models
+INSERT INTO CarModels (brand_id, model_name, car_type, price, top_speed, fuel_type)
+SELECT (SELECT brand_id FROM Brands WHERE brand_name = 'Toyota'), model_name, car_type, price, top_speed, fuel_type
+FROM Toyota;
+
+-- Insert Maruthi Suzuki models
+INSERT INTO CarModels (brand_id, model_name, car_type, price, top_speed, fuel_type)
+SELECT (SELECT brand_id FROM Brands WHERE brand_name = 'Maruthi Suzuki'), model_name, car_type, price, top_speed, fuel_type
+FROM Maruthi_Suzuki;
+
+-- Insert Hyundai models
+INSERT INTO CarModels (brand_id, model_name, car_type, price, top_speed, fuel_type)
+SELECT (SELECT brand_id FROM Brands WHERE brand_name = 'Hyundai'), model_name, car_type, price, top_speed, fuel_type
+FROM Hyundai;
+
+-- Insert Tata Motors models
+INSERT INTO CarModels (brand_id, model_name, car_type, price, top_speed, fuel_type)
+SELECT (SELECT brand_id FROM Brands WHERE brand_name = 'Tata Motors'), model_name, car_type, price, top_speed, fuel_type
+FROM Tata_Motors;
+
+-- Insert Mahindra models
+INSERT INTO CarModels (brand_id, model_name, car_type, price, top_speed, fuel_type)
+SELECT (SELECT brand_id FROM Brands WHERE brand_name = 'Mahindra'), model_name, car_type, price, top_speed, fuel_type
+FROM Mahindra;
